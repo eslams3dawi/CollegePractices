@@ -1,0 +1,56 @@
+ORG 100H
+;1
+LEA SI, DATA1
+MOV AL, 20  
+MOV CX, 5
+
+L1:
+MOV [SI], AL ; 20 22 24 26 28
+ADD AL, 2
+INC SI
+LOOP L1                      
+
+
+;2
+LEA SI, DATA2
+MOV AL, 50   
+MOV CX, 5
+
+L2:
+MOV [SI], AL ; 50 40 30 20 10
+SUB AL, 10
+INC SI
+LOOP L2
+             
+
+;3
+LEA SI, DATA1
+LEA DI, DATA2
+MOV AL, 0
+MOV CX, 5
+
+L3:
+MOV AL, [SI]
+XCHG AL, [DI] 
+MOV [SI], AL
+INC SI
+INC DI
+LOOP L3
+
+
+;4
+MOV AL, [DATA1+4]
+SUB AL, [DATA1]
+MOV DIFF, AL 
+
+;5
+NOT DIFF
+MOV DH, 0
+MOV DL, DIFF
+
+
+
+RET
+DATA1 DB 5 DUP(?) 
+DATA2 DB 5 DUP(?)  
+DIFF DB ?
