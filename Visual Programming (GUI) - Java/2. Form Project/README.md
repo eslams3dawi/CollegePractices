@@ -33,5 +33,3 @@ A simple and user-friendly registration form developed using **Java Swing** and 
 > 💡 This project is for educational purposes and to practice Java GUI development.
 
 ```
-
-لو حابب أضيفلك كمان سكريبت تشغيل أو أي صور للواجهة (Screenshots)، قولي وهنضبطها سوا. تحب أساعدك تعمل نسخة من المشروع على GitHub وتظبط الـ README هناك كمان؟
