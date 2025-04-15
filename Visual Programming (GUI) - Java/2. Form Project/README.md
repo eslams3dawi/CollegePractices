@@ -31,5 +31,3 @@ A simple and user-friendly registration form developed using **Java Swing** and 
 ---
 
 > 💡 This project is for educational purposes and to practice Java GUI development.
-
-```
