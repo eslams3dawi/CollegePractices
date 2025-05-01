@@ -1,0 +1,65 @@
+#include <iostream>
+#include <cmath> // for sqrt() and pow() functions
+using namespace std;
+
+// Function definition to be used in the trapezoidal rule
+float fn(float x)
+{
+    return sqrt(1 + pow(x, 3));
+}
+
+// Function to calculate the error of the integration approximation
+float error(float a, float b, float y)
+{
+    int n = 1000;
+    float s_error = 0, z = 0;
+    float h_error = (b - a) / n;
+
+    for (int i = 1; i <= n - 1; i++)
+    {
+        s_error += fn(a + i * h_error);
+    }
+
+    z = (fn(a) + fn(b) + 2 * s_error) * h_error / 2;
+
+    float final = z - y;
+
+    return final;
+}
+
+int main()
+{
+    int n; // n -> number of intervals/subdivisions
+    float a, b, s = 0, y = 0, h, error_final = 0;
+
+    // a -> lower limit of integration
+    // b -> upper limit of integration
+    // s -> summation used in the trapezoidal rule
+    // y -> final approximation of the integration value
+
+    cout << "Enter the number of intervals: ";
+    cin >> n;
+
+    cout << "Enter the lower limit: ";
+    cin >> a;
+
+    cout << "Enter the upper limit: ";
+    cin >> b;
+
+    h = (b - a) / n; // calculate step size
+
+    // Calculate the summation part of the trapezoidal rule
+    for (int i = 1; i <= n - 1; i++)
+    {
+        s += fn(a + i * h);
+    }
+
+    // Trapezoidal rule formula to approximate the integral
+    y = (fn(a) + fn(b) + 2 * s) * h / 2;
+
+    // Calculate error in the approximation
+    error_final = error(a, b, y);
+
+    cout << "The value of y is = " << y << endl;
+    cout << "The error in y is = " << error_final;
+}
