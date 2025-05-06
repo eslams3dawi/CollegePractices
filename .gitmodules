@@ -4,3 +4,6 @@
 [submodule "Data structure/Hosptial-Management-System-Project"]
 	path = Data structure/Hosptial-Management-System-Project
 	url = https://github.com/eslams3dawi/Hosptial-Management-System.git
+[submodule "Math-3/Image-Noise-Remover-Tool"]
+	path = Math-3/Image-Noise-Remover-Tool
+	url = https://github.com/eslams3dawi/Image-Noise-Remover-Tool.git
