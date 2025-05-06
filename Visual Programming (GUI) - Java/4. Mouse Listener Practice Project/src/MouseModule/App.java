@@ -16,6 +16,10 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 //MouseListener, MouseWheelListener, MouseMotionListener
+//Adapter way: to use only the method with spceific component
+	//MouseListener:MouseAdapter
+	//MouseWheelListener:MouseWheelAdapter
+	//MouseMotionListener:MouseMotionAdapter
 
 public class App extends JFrame
 {
@@ -150,7 +154,5 @@ public class App extends JFrame
 		public void mouseWheelMoved(MouseWheelEvent e) {
 			
 		}
-	}
-
-	
+	}	
 }
