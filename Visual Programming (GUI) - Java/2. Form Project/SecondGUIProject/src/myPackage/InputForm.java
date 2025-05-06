@@ -1,5 +1,4 @@
 package myPackage;
-
 import java.awt.*;
 import javax.swing.*;
 
@@ -8,30 +7,31 @@ public class InputForm extends JFrame
 {
 	JPanel panelOne, panelTwo, panelThree;
 	
-	JLabel welcome, labelOne, labelTwo, labelThree, labelFour, labelFive;
+	JLabel welcome, FullNameLabel, PasswordLabel, GenderLabel, StatusLabel, DepartmentLabel;
 	
-	JTextField textOne, textTwo;
+	JTextField FullNameText;
 	
-	JButton buttonOne, buttonTwo;
+	JButton SignIn, SignUp;
 	
-	JRadioButton radioOne, radioTwo, radioThree, radioFour;
+	JRadioButton MaleRadio, FemaleRadio, SingleButton, MarriedButton;
 	
 	ButtonGroup groupOne, groupTwo, groupThree;
 	
-	JCheckBox checkOne, checkTwo, checkThree;
+	JCheckBox ITCheckBox, HRCheckBox, MarketingCheckBox;
 	
 	JPasswordField password;
 	
-	JMenu menuOne,
-		  menuTwo,
-		  menuThree;
-	JMenuItem item1M1, item2M1, item3M1, item4M1;
-	JMenuItem item1M2, item2M2, item3M2, item4M2;
-	JMenuItem item1M3, item2M3, item3M3;
+	JMenu File,
+		  Edit,
+		  Help;
+	JMenuItem ShowPassword, HidePassword, Save, Properties;
+	JMenuItem Undo, Redo, Copy, Delete;
+	JMenuItem AboutUs, Sponsor, Tips;
 	
 	JMenuBar barOne;
 	
-	
+	//----------------------------------//
+	JToggleButton toggle;
 	public InputForm()
 	{
 		ExecuteForm();
@@ -39,7 +39,7 @@ public class InputForm extends JFrame
 	
 	public void ExecuteForm()
 	{
-		this.setTitle("Form");
+		this.setTitle("Registration Form");
 		this.setSize(700, 800);
 
 		this.setLocation(450, 20);
@@ -47,15 +47,10 @@ public class InputForm extends JFrame
 		this.setResizable(false);
 		
 		this.setLayout(new GridLayout(3 , 1));
-//		this.setLayout(new BorderLayout());
-		
-//		this.add(panelOne, BorderLayout.NORTH);
-//		this.add(panelTwo, BorderLayout.CENTER);
-//		this.add(panelThree, BorderLayout.SOUTH);
 		
 		panelOne = new JPanel(); //menu
 		panelTwo = new JPanel(); //Form body
-		panelThree = new JPanel();
+		panelThree = new JPanel();//Last
 		
 		panelOne.setBackground(Color.LIGHT_GRAY);
 		panelTwo.setBackground(Color.LIGHT_GRAY);
@@ -81,154 +76,165 @@ public class InputForm extends JFrame
 		
 		barOne = new JMenuBar();
 		
-		menuOne = new JMenu("File");
-			item1M1 = new JMenuItem("New");
-			item2M1 = new JMenuItem("Open");
-			item3M1 = new JMenuItem("Save");
-			item4M1 = new JMenuItem("Properties");
-			menuOne.add(item1M1);
-			menuOne.add(item2M1);
-			menuOne.add(item3M1);
-			menuOne.add(item4M1);
+		File = new JMenu("View");
+			ShowPassword = new JMenuItem("Show Password");
+			HidePassword = new JMenuItem("Hide Password");
+			Save = new JMenuItem("Reset All");
+			Properties = new JMenuItem("Properties");
+			File.add(ShowPassword);
+			File.add(HidePassword);
+			File.add(Save);
+			File.add(Properties);
 		
-		menuTwo = new JMenu("Edit");
-			item1M2 = new JMenuItem("Undo");
-			item2M2 = new JMenuItem("Redo");
-			item3M2 = new JMenuItem("Copy");
-			item4M2 = new JMenuItem("Delete");
-			menuTwo.add(item1M2);
-			menuTwo.add(item2M2);
-			menuTwo.add(item3M2);
-			menuTwo.add(item4M2);
+		Edit = new JMenu("Edit");
+			Undo = new JMenuItem("Undo");
+			Redo = new JMenuItem("Redo");
+			Copy = new JMenuItem("Copy");
+			Delete = new JMenuItem("Delete");
+			Edit.add(Undo);
+			Edit.add(Redo);
+			Edit.add(Copy);
+			Edit.add(Delete);
 			
-		menuThree = new JMenu("Help");
-			item1M3 = new JMenuItem("About Us");
-			item2M3 = new JMenuItem("Sponsor");
-			item3M3 = new JMenuItem("Tips");
-			menuThree.add(item1M3);
-			menuThree.add(item2M3);
-			menuThree.add(item3M3);
+		Help = new JMenu("Help");
+			AboutUs = new JMenuItem("About Us");
+			Sponsor = new JMenuItem("Sponsor");
+			Tips = new JMenuItem("Tips");
+			Help.add(AboutUs);
+			Help.add(Sponsor);
+			Help.add(Tips);
 			
-		barOne.add(menuOne);
-		barOne.add(menuTwo);
-		barOne.add(menuThree);
+		barOne.add(File);
+		barOne.add(Edit);
+		barOne.add(Help);
 		this.setJMenuBar(barOne);
 		this.setVisible(true);
 		
 //-------------//Panel Two (FormInput body)//-------------------------
 		panelTwo.setLayout(null);
 		
-		labelOne = new JLabel("Full Name");
-		textOne = new JTextField();
+		FullNameLabel = new JLabel("Full Name");
+		FullNameText = new JTextField();
 		
-		labelTwo = new JLabel("Password");
+		PasswordLabel = new JLabel("Password");
 		//textTwo = new JTextField();
 		password = new JPasswordField();
 			
-		buttonOne = new JButton("Sign in");
-		buttonTwo = new JButton("Sign up");
+		SignIn = new JButton("Sign in");
+		SignUp = new JButton("Sign up");
 		
 		
-		panelTwo.add(labelOne);
-		panelTwo.add(textOne);
+		panelTwo.add(FullNameLabel);
+		panelTwo.add(FullNameText);
 
-		labelOne.setBounds(170, 10, 70, 50);
-		textOne.setBounds(240, 10, 250, 50);
+		FullNameLabel.setBounds(170, 10, 70, 50);
+		FullNameText.setBounds(240, 10, 250, 50);
 		
 		
-		panelTwo.add(labelTwo);
+		panelTwo.add(PasswordLabel);
 		//panelTwo.add(textTwo);
 		panelTwo.add(password);
 		
-		labelTwo.setBounds(170, 80, 70, 50 );
+		PasswordLabel.setBounds(170, 80, 70, 50 );
 		//textTwo.setBounds(240, 80, 250, 50);
 		password.setBounds(240, 80, 250, 50);
 		
-		panelTwo.add(buttonOne);
-		panelTwo.add(buttonTwo);
+		panelTwo.add(SignIn);
+		panelTwo.add(SignUp);
 		
-		buttonOne.setBounds(260, 160, 100, 50);
-		buttonTwo.setBounds(370, 160, 100, 50);
+		SignIn.setBounds(260, 160, 100, 50);
+		SignUp.setBounds(370, 160, 100, 50);
 //--------------------------------------------------------------------
 		
 //------------------//Panel Three//------------------------------------		
 		panelThree.setLayout(null);
 		
-		labelThree = new JLabel("Gender: ");
-		radioOne = new JRadioButton("Male");
-		radioTwo = new JRadioButton("Female");
+		GenderLabel = new JLabel("Gender: ");
+		MaleRadio = new JRadioButton("Male");
+		FemaleRadio = new JRadioButton("Female");
 		
 		//ButtonGroup to force the user to choose one of the radios in that group
 		groupOne = new ButtonGroup();
 		
-		panelThree.add(labelThree);
-		panelThree.add(radioOne);
-		panelThree.add(radioTwo);
+		panelThree.add(GenderLabel);
+		panelThree.add(MaleRadio);
+		panelThree.add(FemaleRadio);
 		
-		groupOne.add(radioOne);
-		groupOne.add(radioTwo);
+		groupOne.add(MaleRadio);
+		groupOne.add(FemaleRadio);
 		
-		labelThree.setBounds(120, 40, 70, 50);
-		radioOne.setBounds(200, 40, 70, 50)	;
-		radioTwo.setBounds(460, 40, 70, 50);
+		GenderLabel.setBounds(120, 40, 70, 50);
+		MaleRadio.setBounds(200, 40, 70, 50)	;
+		FemaleRadio.setBounds(460, 40, 70, 50);
 		
 //------------------------------------------------------------//
 		
-		labelFour = new JLabel("Status");
-		radioThree = new JRadioButton("Single");
-		radioFour = new JRadioButton("Married");
+		StatusLabel = new JLabel("Status");
+		SingleButton = new JRadioButton("Single");
+		MarriedButton = new JRadioButton("Married");
 		
 		groupTwo = new ButtonGroup();
 		
-		panelThree.add(labelFour);
-		panelThree.add(radioThree);
-		panelThree.add(radioFour);
+		panelThree.add(StatusLabel);
+		panelThree.add(SingleButton);
+		panelThree.add(MarriedButton);
 		
-		groupTwo.add(radioThree);
-		groupTwo.add(radioFour);
+		groupTwo.add(SingleButton);
+		groupTwo.add(MarriedButton);
 		
-		labelFour.setBounds(120, 110, 70, 50);
-		radioThree.setBounds(200, 110, 70, 50);
-		radioFour.setBounds(460, 110, 70, 50);
+		StatusLabel.setBounds(120, 110, 70, 50);
+		SingleButton.setBounds(200, 110, 70, 50);
+		MarriedButton.setBounds(460, 110, 70, 50);
 		
 //------------------------------------------------------------//
 		
-		labelFive = new JLabel("Department: ");
-		checkOne = new JCheckBox("IT");
-		checkTwo = new JCheckBox("HR");
-		checkThree =new JCheckBox("Marketing");
+		DepartmentLabel = new JLabel("Department: ");
+		ITCheckBox = new JCheckBox("IT");
+		HRCheckBox = new JCheckBox("HR");
+		MarketingCheckBox =new JCheckBox("Marketing");
 		
-		panelThree.add(labelFive);
-		panelThree.add(checkOne);
-		panelThree.add(checkTwo);
-		panelThree.add(checkThree);
+		panelThree.add(DepartmentLabel);
+		panelThree.add(ITCheckBox);
+		panelThree.add(HRCheckBox);
+		panelThree.add(MarketingCheckBox);
 		
 		groupThree = new ButtonGroup();
 		
-		groupThree.add(checkOne);
-		groupThree.add(checkTwo);
-		groupThree.add(checkThree);
+		groupThree.add(ITCheckBox);
+		groupThree.add(HRCheckBox);
+		groupThree.add(MarketingCheckBox);
 		
-		labelFive.setBounds(330, 150, 100, 60);
-		checkOne.setBounds(190, 200, 40, 40);
-		checkThree.setBounds(320, 200, 90, 40);
-		checkTwo.setBounds(495, 200, 45, 40);
+		DepartmentLabel.setBounds(330, 150, 100, 60);
+		ITCheckBox.setBounds(190, 200, 40, 40);
+		MarketingCheckBox.setBounds(320, 200, 90, 40);
+		HRCheckBox.setBounds(495, 200, 45, 40);
 		
-//		
-//		radioOne.setOpaque(false);
-//		radioTwo.setOpaque(false);
-//		radioThree.setOpaque(false);
-//		radioFour.setOpaque(false);
-//		
-//		checkOne.setOpaque(false);
-//		checkTwo.setOpaque(false);
-//		checkThree.setOpaque(false);
+
+		MaleRadio.setOpaque(false);
+		FemaleRadio.setOpaque(false);
+		SingleButton.setOpaque(false);
+		MarriedButton.setOpaque(false);
 		
+		ITCheckBox.setOpaque(false);
+		HRCheckBox.setOpaque(false);
+		MarketingCheckBox.setOpaque(false);
+		
+//		toggle = new JToggleButton("Form Active");
+//		toggle.addItemListener(t ->
+//		{
+//			if(toggle.isSelected())
+//			{
+//				System.out.println("Button is ON");
+//			}
+//			else
+//			{
+//				System.out.println("Button is OFF");
+//			}
+//		});
+//		panelOne.add(toggle);
+//		toggle.setBounds(125, 50, 200, 200);
 	}
-	
 }
-
-
 
 
 
