@@ -1,3 +1,6 @@
 [submodule "Data structure/Datastructure-concepts"]
 	path = Data structure/Datastructure-concepts
 	url = https://github.com/eslams3dawi/Data-Structures-From-Scratch-Using-C-Plus-Plus.git
+[submodule "Data structure/Hosptial-Management-System-Project"]
+	path = Data structure/Hosptial-Management-System-Project
+	url = https://github.com/eslams3dawi/Hosptial-Management-System.git
